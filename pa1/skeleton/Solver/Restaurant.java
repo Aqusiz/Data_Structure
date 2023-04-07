@@ -3,21 +3,25 @@ package Solver;
 import Structures.Queue;
 
 public class Restaurant {
-    // FILL HERE
+    private Queue q;
+    private int n, m;
 
     public Restaurant(int max_student){
-        // FILL HERE
+        q = new Queue(max_student);
+        n = 0;
+        m = 0;
     }
 
     public void newStudent(int stu_id){
-        // FILL HERE
+        q.push(stu_id);
+        if(q.length() > m) m = q.length();
     }
 
     public void serve(){
-        // FILL HERE
+        n = q.pop();
     }
 
     public String answer(){
-        // FILL HERE
+        return n + " " + m;
     }
 }
