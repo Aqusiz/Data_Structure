@@ -28,6 +28,6 @@ public class Stack{
     }
 
     public int pop(){
-        return arr[idx--];
+        return arr[--idx];
     }
 }
