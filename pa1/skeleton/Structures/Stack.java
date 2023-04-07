@@ -1,29 +1,33 @@
 package Structures;
 
 public class Stack{
-    // FILL HERE
+    private int[] arr;
+    private int max_size;
+    private int idx;
 
     public Stack(int max_len){
-        // FILL HERE
+        max_size = max_len;
+        arr = new int[max_size];
+        idx = 0;
     }
 
     public void clear(){
-        // FILL HERE
+        idx = 0;
     }
 
     public boolean isempty(){
-        // FILL HERE
+        return (idx == 0);
     }
 
     public int length(){
-        // FILL HERE
+        return idx;
     }
 
     public void push(int val){
-        // FILL HERE
+        arr[idx++] = val;
     }
 
     public int pop(){
-        // FILL HERE
+        return arr[idx--];
     }
 }
