@@ -1,0 +1,14 @@
+queue pushed: 20
+queue pushed: 30
+queue pop: 20
+queue is not empty
+queue pushed: 40
+queue length: 2
+queue pop: 30
+queue pop: 40
+queue is empty
+queue length: 0
+queue pushed: 50
+queue cleared
+queue is empty
+queue length: 0

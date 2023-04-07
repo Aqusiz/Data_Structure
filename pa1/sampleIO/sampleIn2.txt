@@ -1,0 +1,14 @@
+queue push 20
+queue push 30
+queue pop
+queue isempty
+queue push 40
+queue length
+queue pop
+queue pop
+queue isempty
+queue length
+queue push 50
+queue clear
+queue isempty
+queue length
