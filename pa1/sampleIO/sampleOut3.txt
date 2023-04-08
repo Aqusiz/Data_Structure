@@ -1,0 +1,3 @@
+visible buildings: 10
+visible buildings: 1
+visible buildings: 4

@@ -1,0 +1,3 @@
+length, stu_id: 3 3
+length, stu_id: 7 5
+length, stu_id: 2 7
