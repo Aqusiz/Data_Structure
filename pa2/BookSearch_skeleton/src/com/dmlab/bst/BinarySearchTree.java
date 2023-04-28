@@ -45,7 +45,8 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, E> {
      */
     public void insert(Key key, E value) {
         // TODO: Fill in this function
-        System.out.println("TODO: Fill in this function");
+        root = insertHelp(root, key, value);
+        nodeCount++;
     }
 
     /**
@@ -58,8 +59,15 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, E> {
      */
     private BinaryNode<Key, E> insertHelp(BinaryNode<Key, E> rt, Key key, E value) {
         // TODO: Fill in this function
-        System.out.println("TODO: Fill in this function");
-        return null;
+        if(rt == null) {
+            return new BinaryNode<Key, E>(key, value);
+        } else if (rt.getKey().compareTo(key) > 0) {
+            rt.setLeft(insertHelp(rt.getLeft(), key, value));
+        } else {
+            rt.setRight(insertHelp(rt.getRight(), key, value));
+        }
+        rt.increaseSize();
+        return rt;
     }
 
     /**
@@ -70,8 +78,12 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, E> {
      */
     public E remove(Key key) {
         // TODO: Fill in this function
-        System.out.println("TODO: Fill in this function");
-        return null;
+        E temp = findHelp(root, key);
+        if (temp != null) {
+            root = this.removeHelp(root, key);
+            nodeCount--;
+        }
+        return temp;
     }
 
     /**
@@ -83,8 +95,25 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, E> {
      */
     private BinaryNode<Key, E> removeHelp(BinaryNode<Key, E> rt, Key key) {
         // TODO: Fill in this function
-        System.out.println("TODO: Fill in this function");
-        return null;
+        if (rt == null) return null;
+        else if (rt.getKey().compareTo(key) > 0) {
+            rt.setLeft(removeHelp(rt.getLeft(), key));
+        }
+        else if (rt.getKey().compareTo(key) < 0) {
+            rt.setRight(removeHelp(rt.getRight(), key));
+        }
+        else {
+            if (rt.getLeft() == null) return rt.getRight();
+            else if (rt.getRight() == null) return rt.getLeft();
+            else {
+                BinaryNode<Key, E> temp = getMin(rt.getRight());
+                rt.setValue(temp.getValue());
+                rt.setKey(temp.getKey());
+                rt.setRight(deleteMin(rt.getRight()));
+            }
+        }
+        rt.decreaseSize();
+        return rt;
     }
 
     /**
@@ -96,8 +125,9 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, E> {
      */
     public BinaryNode<Key, E> getMin(BinaryNode<Key, E> rt) {
         // TODO: Fill in this function
-        System.out.println("TODO: Fill in this function");
-        return null;
+        if (rt == null) return null;
+        if (rt.getLeft() == null) return rt;
+        else return getMin(rt.getLeft());
     }
 
     /**
@@ -109,8 +139,9 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, E> {
      */
     public BinaryNode<Key, E> getMax(BinaryNode<Key, E> rt) {
         // TODO: Fill in this function
-        System.out.println("TODO: Fill in this function");
-        return null;
+        if (rt == null) return rt;
+        if (rt.getRight() == null) return rt;
+        else return getMax(rt.getRight());
     }
 
     /**
@@ -121,8 +152,10 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, E> {
      */
     private BinaryNode<Key, E> deleteMin(BinaryNode<Key, E> rt) {
         // TODO: Fill in this function
-        System.out.println("TODO: Fill in this function");
-        return null;
+        if (rt == null) return null;
+        else if (rt.getLeft() == null) return rt.getRight();
+        else rt.setLeft(deleteMin(rt.getLeft()));
+        return rt;
     }
 
 
@@ -153,8 +186,10 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, E> {
      */
     private E findHelp(BinaryNode<Key, E> rt, Key key) {
         // TODO: Fill in this function
-        System.out.println("TODO: Fill in this function");
-        return null;
+        if (rt == null) return null;
+        else if (rt.getKey().compareTo(key) > 0) return findHelp(rt.getLeft(), key);
+        else if (rt.getKey().compareTo(key) < 0) return findHelp(rt.getRight(), key);
+        else return rt.getValue();
     }
 
     /**
@@ -172,7 +207,10 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, E> {
      */
     public void printBookListHelper(BinaryNode<Key, E> rt) {
         ///TODO: Fill in this function
-        System.out.println("TODO: Fill in this function");
+        if (rt == null) return;
+        printBookListHelper(rt.getLeft());
+        System.out.println("BOOK:\t"+ rt.getKey());
+        printBookListHelper(rt.getRight());
     }
 
     /**
@@ -183,8 +221,7 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, E> {
      */
     public Key orderSearch(int order) {
         ///TODO: Fill in this function
-        System.out.println("TODO: Fill in this function");
-        return null;
+        return orderSearchHelper(root, order);
     }
 
     /**
@@ -197,8 +234,15 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, E> {
      */
     private Key orderSearchHelper(BinaryNode<Key, E> rt, int order) {
         ///TODO: Fill in this function
-        System.out.println("TODO: Fill in this function");
-        return null;
+        if (rt == null) return null;
+        int now_order = (rt.getRight() == null) ? rt.getSize() : rt.getSize() - rt.getRight().getSize();
+        if (now_order == order) return rt.getKey();
+        else if (now_order > order) {
+            return orderSearchHelper(rt.getLeft(), order);
+        }
+        else {
+            return orderSearchHelper(rt.getRight(), order - now_order);
+        }
     }
 
     /**
@@ -210,8 +254,7 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, E> {
 
     public int orderSearch(Key key) {
         ///TODO: Fill in this function
-        System.out.println("TODO: Fill in this function");
-        return -1;
+        return orderSearchHelper(root, key, 0);
     }
 
     /**
@@ -225,8 +268,15 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, E> {
      */
     private int orderSearchHelper(BinaryNode<Key, E> rt, Key key, int count) {
         ///TODO: Fill in this function
-        System.out.println("TODO: Fill in this function");
-        return -1;
+        if (rt == null) return 0;
+        int left_size = (rt.getLeft() == null) ? 0 : rt.getLeft().getSize();
+        if (rt.getKey().compareTo(key) > 0) {
+            return orderSearchHelper(rt.getLeft(), key, count);
+        }
+        else if (rt.getKey().compareTo(key) < 0) {
+            return orderSearchHelper(rt.getRight(), key, count + left_size + 1);
+        }
+        return count + left_size + 1;
     }
     // Implement more functions HERE
 }
