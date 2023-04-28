@@ -97,12 +97,11 @@ public class BookSearch {
      * If BookSearch does not have any book, print the message "BookSearch does not have any book".
      */
     public void printBookList() {
-        if (this.size() == 0) {
+        if (bst.size() == 0) {
             System.out.println("BookSearch does not have any book");
             return;
         }
-        TreePrinter<String, String> tp = new TreePrinter<String, String>();
-        tp.printNode(bst.getRoot());
+        bst.printBookList();
     }
 
     /**
