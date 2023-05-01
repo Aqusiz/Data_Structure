@@ -155,6 +155,7 @@ public class BinarySearchTree<Key extends Comparable<? super Key>, E> {
         if (rt == null) return null;
         else if (rt.getLeft() == null) return rt.getRight();
         else rt.setLeft(deleteMin(rt.getLeft()));
+        rt.decreaseSize();
         return rt;
     }
 
