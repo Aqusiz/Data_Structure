@@ -1,0 +1,36 @@
+apple
+coconut
+strawberry
+durian
+banana
+watermelon
+Print: 0 apple 3
+Print: 1 coconut 5
+Print: 2 strawberry 1
+Search: 1 apple 3
+searchKey: 1 apple
+Search: 2 banana 4
+searchKey: 4 durian
+Sorted
+Print: 0 apple 3
+Print: 1 banana 4
+Print: 2 coconut 5
+searchKey: 3 coconut
+n1: 3 n2: 3
+apple
+coconut
+strawberry
+durian
+banana
+watermelon
+Median: coconut-durian 2-4
+First: apple 1
+n1: 2 n2: 3
+apple
+coconut
+strawberry
+durian
+banana
+First: apple 1
+Median: coconut 2
+Last: strawberry 3
