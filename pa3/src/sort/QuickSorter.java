@@ -38,7 +38,7 @@ public class QuickSorter<K extends Comparable<? super K>>{
 		return findMedianIdx(array, left, (left+right)/2, right);
 	}
 
-	private int partition(Pair<K, ?>[] array, int left, int right) {
+	public int partition(Pair<K, ?>[] array, int left, int right) {
 		K pivot;
 		int p = findPivotIdx(array, left, right);
 		pivot = array[p].getKey();
