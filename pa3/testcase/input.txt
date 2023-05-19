@@ -1,0 +1,37 @@
+n 6
+append apple 3
+append coconut 5
+append strawberry 1
+append durian 2
+append banana 4
+append watermelon 6
+print 0
+print 1
+print 2
+search 1
+searchKey apple
+search 2
+searchKey durian
+sort
+print 0
+print 1
+print 2
+searchKey coconut
+n 3 3
+append apple 1
+append coconut 2
+append strawberry 3
+append durian 4
+append banana 5
+append watermelon 6
+median
+first
+n 2 3
+append apple 1
+append coconut 2
+append strawberry 3
+append durian 4
+append banana 5
+first
+median
+last
