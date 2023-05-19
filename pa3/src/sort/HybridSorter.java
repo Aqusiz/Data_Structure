@@ -22,11 +22,23 @@ public class HybridSorter<K extends Comparable<? super K>> {
 		// Fill your code to find the value of k for the pair that has the given key as its key value.
 		// k represents the k-th element in the sorted `array`.
 		this.sort(array, 0, Array.getLength(array)-1);
+		int l = 0, r = Array.getLength(array), m;
+		int comp;
+		while(l <= r) {
+			m = (l+r) / 2;
+			comp = key.compareTo(array[m].getKey().toString());
+			if(comp == 0) return m+1;
+			
+			if (comp > 0) l = m + 1;
+			else r = m - 1;
+		}
+		/* 
 		for(int i = 0; i < Array.getLength(array); i++) {
 			if(key.compareTo(array[i].getKey().toString()) == 0) {
 				return i+1;
 			}
 		}
+		*/
 		return -1;
 	}
 
