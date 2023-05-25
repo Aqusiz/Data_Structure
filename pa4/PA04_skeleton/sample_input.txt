@@ -1,0 +1,13 @@
+create 1 1 1
+insert 100
+insert 200
+insert 1000
+insert 2000
+search 100
+search 200
+search 1000
+search 2000
+delete 100
+search 100
+search 200
+maxProbe
