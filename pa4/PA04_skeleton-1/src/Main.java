@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
-    private static final int TABLE_SIZE = 1201;
+    private static final int TABLE_SIZE = 523;
     private static final int ERROR = -1;
     private static final int CREATE = 0;
     private static final int INSERT = 1;
