@@ -51,21 +51,26 @@ public class Main {
                     c2 = Integer.parseInt(lineSplit[2]);
                     c3 = Integer.parseInt(lineSplit[3]);
                     //TODO: fill your code
+                    hashTable.create(c1, c2, c3);
                     break;
                 case INSERT:
                     key = Integer.parseInt(lineSplit[1]);
                     //TODO: fill your code
+                    hashTable.insert(key);
                     break;
                 case DELETE:
                     key = Integer.parseInt(lineSplit[1]);
                     //TODO: fill your code
+                    hashTable.delete(key);
                     break;
                 case SEARCH:
                     key = Integer.parseInt(lineSplit[1]);
                     //TODO: fill your code
+                    hashTable.search(key);
                     break;
                 case PROBE:
                     //TODO: fill your code
+                    hashTable.maxProbe();
                     break;
             }
         }
